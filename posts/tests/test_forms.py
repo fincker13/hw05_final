@@ -9,7 +9,6 @@ from django.http import response
 from django.urls import reverse
 
 from posts.models import Post, User
-#from posts.forms import PostForm
 
 
 INDEX_URL = reverse('index')
