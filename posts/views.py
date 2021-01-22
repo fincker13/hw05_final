@@ -106,9 +106,9 @@ def post_edit(request, username, post_id):
             post.author = request.user
             form.save()
             return redirect("post", username=request.user.username, post_id=post_id) 
-        return render(request, 'post_new.html', {'form':form, 'post':post})
+        return render(request, 'post_new.html', {'form': form, 'post': post})
     form = PostForm(instance=post)    
-    return render(request, 'post_new.html', {'form':form, 'post':post})
+    return render(request, 'post_new.html', {'form': form, 'post': post})
 
 @login_required
 def add_comment(request, username, post_id):
