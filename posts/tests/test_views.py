@@ -156,7 +156,6 @@ class PostViewTest(TestCase):
 
     def test_post_new_page_show_correct_context(self):
         """Шаблон post_edit сформированн с правильным контекстом"""
-        post = PostViewTest.post
         response = self.authorized_client.get(PostViewTest.POST_EDIT_URL)
         form_fields ={
             'group': forms.fields.ChoiceField,
@@ -178,13 +177,13 @@ class PostViewTest(TestCase):
         self.assertEqual(response.context.get('post').image, post.image)
         self.assertEqual(response.context.get('post_count'), 1)
 
-    def test_foolow(self):
+    def test_follow(self):
         """Авторизованный пользователь может подписываться на других пользователей"""
         self.authorized_client.get(PROFILE_FOLLOW_URL)
         response = self.authorized_client.get(PROFILE_URL)
         self.assertEqual(response.context['follows'], 2)
 
-    def test_foolow(self):
+    def test_unfollow(self):
         """Авторизованный пользователь может отдписываться от других пользователей"""
         self.authorized_client.get(PROFILE_UNFOLLOW_URL)
         response = self.authorized_client.get(PROFILE_URL)

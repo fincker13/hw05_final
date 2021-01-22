@@ -120,3 +120,4 @@ class Follow(models.Model):
         on_delete=CASCADE,
         related_name='following',
     )
+    objects = models.Manager()
